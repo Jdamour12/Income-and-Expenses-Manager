@@ -108,4 +108,3 @@ def delete_income(request, id):
     income.delete()
     messages.success(request, 'record removed')
     return redirect('income')
-
