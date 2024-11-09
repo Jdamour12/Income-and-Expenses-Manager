@@ -146,4 +146,4 @@ EMAIL_HOST = 'smtp.example.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'jeandamourkubwimana0@gmail.com'
-EMAIL_HOST_PASSWORD = 'mathematicsdelta'
+EMAIL_HOST_PASSWORD = ''
