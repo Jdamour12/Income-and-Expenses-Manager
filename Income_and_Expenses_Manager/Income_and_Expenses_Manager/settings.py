@@ -9,7 +9,9 @@ https://docs.djangoproject.com/en/5.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
-
+from django.contrib import messages
+import os
+import django_heroku
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -37,6 +39,9 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "expenses",
+    "userpreferences",
+    "userincome"
 ]
 
 MIDDLEWARE = [
@@ -54,7 +59,7 @@ ROOT_URLCONF = "Income_and_Expenses_Manager.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [os.path.join(BASE_DIR, "templates")],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -75,8 +80,12 @@ WSGI_APPLICATION = "Income_and_Expenses_Manager.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": "income_expence_manager",
+        "HOST": "localhost",
+        "USER": "root",
+        "PASSWORD": "Networking250",
+        "PORT": "3306",
     }
 }
 
@@ -121,3 +130,20 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'Income_and_Expenses_Manager/static')]
+STATIC_ROOT = os.path.join(BASE_DIR,'static')
+
+django_heroku.settings(locals())
+
+MESSAGE_TAGS = {
+    messages.ERROR: 'danger'
+}
+
+
+# email stuff
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.example.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'jeandamourkubwimana0@gmail.com'
+EMAIL_HOST_PASSWORD = 'mathematicsdelta'
