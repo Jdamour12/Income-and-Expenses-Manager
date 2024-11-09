@@ -33,13 +33,12 @@
           />
         </div>
         <div class="form-group">
-          <label for="">Category</label>
+          <label for="">category</label>
           <select class="form-control" name="category">
-            {% for category in categories%}
-            <option name="category" value="{{category.name}}"
-              >{{category.name}}</option
-            >
-
+            {% for category in categories %}
+            <option name="category" value="{{ category.name }}">
+              {{ category.name }}
+            </option>
             {% endfor %}
           </select>
         </div>

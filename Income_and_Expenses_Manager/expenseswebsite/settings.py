@@ -83,7 +83,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': "income_expence_manager",
         'USER': "root",
-        'PASSWORD': "",
+        'PASSWORD': "Networking250",
         'HOST': "127.0.0.1",
         'PORT': '3306',
     }
